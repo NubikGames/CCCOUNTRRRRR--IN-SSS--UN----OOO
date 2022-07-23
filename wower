@@ -1,0 +1,81 @@
+-- UNIVERSAL DATA --
+local plrgui = game.Players.LocalPlayer.PlayerGui
+-- TP DATA--
+local Player = game.Players.LocalPlayer
+local Mouse = Player:GetMouse()
+local UserInputService = game:GetService('UserInputService')
+
+local HoldingControl = false
+
+Mouse.Button1Down:connect(function()
+if HoldingControl then
+Player.Character:MoveTo(Mouse.Hit.p)
+end
+end)
+-- VEHICLE SPEED DATA --
+function VehicleGear(Ticket)local args = {[1] = "Gear",[2] = Ticket}game:GetService("Players").LocalPlayer.PlayerGui.CarGui.Frame.BossEvent:FireServer(unpack(args))end
+-- MAIN UI --
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/miroeramaa/TurtleLib/main/TurtleUiLib.lua"))()
+
+local window = library:Window("Car Manipulations")
+
+window:Box("Vehicle Speed", function(text, focuslost)
+   if focuslost then
+   VehicleGear(text)
+   print(text)
+   end
+end)
+
+window:Toggle("Tp Click", false, function(bool)
+    print(bool) 
+    if bool == true then
+     HoldingControl = true
+    elseif bool == false then
+     HoldingControl = false
+     end
+end)
+
+local window = library:Window("GUI Manipulations")
+
+window:Button("Delete Prison GUI", function()
+   plrgui.PrisonGui:Destroy()
+   print("Deleted Prison GUI")
+end)
+
+window:Button("Delete Nickname", function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/NubikGames/Fe-Chat-Translator-for-loadstring/main/Script3"))()
+   print("Deleted Nickname")
+end)
+
+local window = library:Window("Enable Function")
+
+window:Button("Enable Reset", function()
+   while true do
+     game:GetService("StarterGui"):SetCore("ResetButtonCallback", true)
+     game:GetService("RunService").RenderStepped:Wait()
+   end
+   print("Enabled Reset")
+end)
+
+window:Button("Enable Kill All", function()
+   loadstring(game:HttpGet("https://pastebin.com/raw/QmnWQ270"))()
+   print("Enabled Kill All")
+end)
+
+local window = library:Window("Settings & Credits")
+
+library:Keybind("P")
+
+window:Button("Hide button - P", function()
+   keypress(0x50)
+   print("Script Working!")
+end)
+
+window:Button("Unload Script", function()
+   library:Destroy()
+   print("Unloaded!")
+end)
+
+window:Label("Credits to KUser#6549", Color3.fromRGB(127, 143, 166))
+
+window:Label("Last Update 24.07.2022 - 2:15", Color3.fromRGB(127, 143, 166))
