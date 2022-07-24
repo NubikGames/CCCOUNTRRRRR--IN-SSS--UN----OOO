@@ -1,0 +1,44 @@
+local minimum = 0
+--DATA--
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/lolpoppyus/Roblox-Lua/master/Pop%20UI%20Lib", true))()
+
+local ui = library:Tab("Pls Donate Script")
+
+ui:Button("Fake Donation", function()
+    loadstring(game:HttpGet(("https://raw.githubusercontent.com/o5u3/PLS-Donate/main/Fake-Donate.lua")))()
+    print("Done")
+end)
+
+ui:Button("Esp", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/2dgeneralspam1/cheatx/main/cheatx%20loader'))()
+    print("Done")
+end)
+
+ui:Button("Emotes", function()
+    loadstring(game:HttpGet("https://gitlab.com/Tsuniox/lua-stuff/-/raw/master/R15GUI.lua"))()
+    print("Done")
+end)
+
+ui:Button("Anti Afk", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/2dgeneralspam1/scripts-and-stuff/master/scripts/LoadstringypVvhJBq4QNz", true))()
+    print("Done")
+end)
+
+ui:Button("Get Tp to Rich Player Script", function()
+    setclipboard("https://controlc.com/39ec452e")
+    print("Done")
+end)
+
+ui:Button("VG HUB", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub'))()
+    print("Done")
+end)
+
+local ui = library:Tab("Settings")
+
+ui:CreateKeybind("Keybinds", function(enabled)
+    game:GetService("CoreGui").OfficialUILib.Enabled = not game:GetService("CoreGui").OfficialUILib.Enabled;
+end,Enum.KeyCode.P);
+
+ui:Label("Made by KUser for Diex")
+ui:Label("1.0.0", "07/24/2022 6:30 PM")
