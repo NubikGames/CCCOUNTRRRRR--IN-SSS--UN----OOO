@@ -40,6 +40,7 @@ ui:Label("Made by KUser for Diex")
 ui:Label("1.0.0v 07/24/2022 6:30 PM")
 
 ui:Button("Unload Script", function()
+    setclipboard("game:GetService("CoreGui").OfficialUILib.Enabled = true")
     game:GetService("CoreGui").OfficialUILib.Enabled = false
-    print("Done")
+    print("To reactivate execute script in clipboard")
 end)
