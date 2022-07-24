@@ -36,9 +36,10 @@ end)
 
 local ui = library:Tab("Settings")
 
-ui:CreateKeybind("Keybinds", function(enabled)
-    game:GetService("CoreGui").OfficialUILib.Enabled = not game:GetService("CoreGui").OfficialUILib.Enabled;
-end,Enum.KeyCode.P);
+ui:Button("Unload Script", function()
+    game:GetService("CoreGui").OfficialUILib.Enabled = false
+    print("Done")
+end)
 
 ui:Label("Made by KUser for Diex")
-ui:Label("1.0.0", "07/24/2022 6:30 PM")
+ui:Label("1.0.0v 07/24/2022 6:30 PM")
