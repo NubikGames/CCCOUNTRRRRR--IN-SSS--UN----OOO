@@ -43,3 +43,12 @@ ui:Button("Unload Script", function()
     game:GetService("CoreGui").OfficialUILib.Enabled = false
     print("Done")
 end)
+
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Y3M/Rex/master/UI%20Library.lua", true))()
+
+local frame = library:AddFrame("Load Script")
+
+local button1 = frame:AddButton("Click", function()
+game:GetService("CoreGui").OfficialUILib.Enabled = true
+print("yay")
+end)
