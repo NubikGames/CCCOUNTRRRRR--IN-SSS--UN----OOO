@@ -36,10 +36,10 @@ end)
 
 local ui = library:Tab("Settings")
 
+ui:Label("Made by KUser for Diex")
+ui:Label("1.0.0v 07/24/2022 6:30 PM")
+
 ui:Button("Unload Script", function()
     game:GetService("CoreGui").OfficialUILib.Enabled = false
     print("Done")
 end)
-
-ui:Label("Made by KUser for Diex")
-ui:Label("1.0.0v 07/24/2022 6:30 PM")
