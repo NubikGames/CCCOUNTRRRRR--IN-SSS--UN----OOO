@@ -43,9 +43,3 @@ ui:Button("Unload Script", function()
     game:GetService("CoreGui").OfficialUILib.Enabled = false
     print("Done")
 end)
-
-local UI = loadstring(game:HttpGet'https://raw.githubusercontent.com/flareo/external-UI-Library/master/Source.lua')()
-
-local Tab = UI.createCategory'Load Script'
-
-Tab:addButton('Button',game:GetService("CoreGui").OfficialUILib.Enabled = true Callback)
