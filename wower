@@ -62,28 +62,6 @@ window:Button("Enable Kill All", function()
    print("Enabled Kill All")
 end)
 
---ARREST DATA 1--
-local Arrest = game:GetService("Players")
-function PlayerDetain(plr)local args = {[1] = "Detain",[2] = plr}game:GetService("Players").LocalPlayer.Character.Handcuffs.Handcuffs.CuffsEvent:FireServer(unpack(args))end
---ARREST DATA 2--
-function Arresting(time)local args = {[1] = "Imprison",[3] = time,[4] = "Tool Abuse"}game:GetService("Players").LocalPlayer.Character.Handcuffs.Handcuffs.CuffsEvent:FireServer(unpack(args))end
---END--
-local window = library:Window("Arrest Gui")
-
-window:Box("Player to Arrest", function(text, focuslost)
-   if focuslost then
-   PlayerDetain(text)
-   print(text)
-   end
-end)
-
-window:Box("Time to Arrest", function(text, focuslost)
-   if focuslost then
-   Arresting(text)
-   print(text)
-   end
-end)
-
 local window = library:Window("Settings & Credits")
 
 library:Keybind("P")
