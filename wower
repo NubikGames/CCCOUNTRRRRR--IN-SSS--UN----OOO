@@ -110,7 +110,7 @@ window:Button("Launch Action", function()
    end
 end)
 
-window:Slider("Brightness",0,100,1, function(value)
+window:Slider("Brightness",0,10000,1, function(value)
    print(value)
    game.Lighting.Brightness = value
 end)
