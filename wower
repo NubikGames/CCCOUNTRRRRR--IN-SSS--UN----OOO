@@ -12,6 +12,10 @@ if HoldingControl then
 Player.Character:MoveTo(Mouse.Hit.p)
 end
 end)
+-- PLAYER DATA
+local victimname = ""
+local actionname = ""
+reasonplayer = ""
 -- VEHICLE SPEED DATA --
 function VehicleGear(Ticket)local args = {[1] = "Gear",[2] = Ticket}game:GetService("Players").LocalPlayer.PlayerGui.CarGui.Frame.BossEvent:FireServer(unpack(args))end
 -- MAIN UI --
@@ -62,6 +66,55 @@ window:Button("Enable Kill All", function()
    print("Enabled Kill All")
 end)
 
+local window = library:Window("Player Manipulation")
+
+window:Button("Become Cop", function()
+   workspace.TeamEventScript.TeamChangeEvent:FireServer("Bronze")
+   print("Becomed Cop")
+end)
+
+window:Button("Equip Cuffs", function()
+   game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack["Handcuffs"])
+   print("Equipped Cuffs")
+end)
+
+window:Box("Victim Name", function(text, focuslost)
+   if focuslost then
+   victimname = text
+   print(text)
+   end
+end)
+
+window:Box("Reason", function(text, focuslost)
+   if focuslost then
+   reasonplayer = text
+   print(text)
+   end
+end)
+
+local dropdown = window:Dropdown("Select Action", {"TpTo", "Cuff", "Imprison", "Citation"}, function(name)
+   print(name)
+   actionname = name
+end)
+
+window:Button("Launch Action", function()
+   print("Action Launched")
+   if actionname == "TpTo" then
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players")[victimname].Character.HumanoidRootPart.CFrame
+   elseif actionname == "Cuff" then
+   game:GetService("Players").LocalPlayer.Character.Handcuffs.Handcuffs.CuffsEvent:FireServer("Detain", game:GetService("Players")[victimname])
+   elseif actionname == "Imprison" then
+   game:GetService("Players").LocalPlayer.Character.Handcuffs.Handcuffs.CuffsEvent:FireServer("Imprison",  game:GetService("Players")[victimname], "600", reasonplayer)
+   elseif actionname == "Citation" then
+   workspace.CitationsScript.SendCitation:InvokeServer(victimname, reasonplayer, "500")
+   end
+end)
+
+window:Slider("Brightness",0,100,1, function(value)
+   print(value)
+   game.Lighting.Brightness = value
+end)
+
 local window = library:Window("Settings & Credits")
 
 library:Keybind("P")
@@ -78,4 +131,4 @@ end)
 
 window:Label("Credits to KUser#6549", Color3.fromRGB(127, 143, 166))
 
-window:Label("Last Update 24.07.2022 - 2:15", Color3.fromRGB(127, 143, 166))
+window:Label("Last Update 27.08.2022 - 22:10", Color3.fromRGB(127, 143, 166))
