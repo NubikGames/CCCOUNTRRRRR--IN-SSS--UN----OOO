@@ -129,6 +129,6 @@ window:Button("Unload Script", function()
    print("Unloaded!")
 end)
 
-window:Label("Credits to KUser#6549", Color3.fromRGB(127, 143, 166))
+window:Label("Credits to Nubik#6549 and Dr.Rox#7485", Color3.fromRGB(127, 143, 166))
 
 window:Label("Last Update 27.08.2022 - 22:10", Color3.fromRGB(127, 143, 166))
